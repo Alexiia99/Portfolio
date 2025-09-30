@@ -13,9 +13,9 @@ Portfolio personal de desarrolladora Full Stack graduada en DAM.
 - `/components` - Componentes reutilizables
 
 ## Despliegue
-Sitio deployado en: [URL cuando lo subas]
+Sitio deployado en: [alexia-herrador.dev](https://alexiia99.github.io/Portfolio/)
 
 ## Contacto
 - Email: alexiahj111@email.com
-- LinkedIn: [tu-linkedin]
-- GitHub: [tu-github]
+- LinkedIn: LinkedIn: [linkedin.com/in/alexia-herrador-jimenez](https://www.linkedin.com/in/alexia-herrador-jimenez-3a5906170/)
+- GitHub: [@alexia-herrador](https://github.com/alexiia99)
