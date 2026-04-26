@@ -3,29 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Alexia Herrador Jiménez - Desarrolladora de Aplicaciones Móviles graduada en DAM. Especializada en Android y Backend con APIs REST.">
-    <meta name="keywords" content="desarrolladora, DAM, Kotlin, Android, Java, Node.js, APIs REST, MVVM, portfolio, programadora">
+    <meta name="description" content="Portfolio de Alexia Herrador Jiménez - Software Developer especializada en Android, Backend, IA y Big Data.">
+    <meta name="keywords" content="desarrolladora, software developer, Kotlin, Android, Java, Node.js, Python, Machine Learning, IA, Big Data, LangChain, Ollama, portfolio">
     <meta name="author" content="Alexia Herrador Jiménez">
-    
-    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Alexia Herrador Jiménez - Desarrolladora DAM">
-    <meta property="og:description" content="Portfolio de desarrolladora de aplicaciones móviles graduada en DAM, especializada en Android y Backend">
+    <meta property="og:title" content="Alexia Herrador Jiménez - Software Developer · AI & Data">
+    <meta property="og:description" content="Software Developer con experiencia en Android, Backend e IA aplicada.">
     <meta property="og:image" content="./assets/images/profile/social-preview.jpg">
-    <meta property="og:url" content="https://alexia-herrador.dev">
-    
-    <title>Alexia Herrador Jiménez - Desarrolladora DAM | Portfolio</title>
-    
-    <!-- Favicon -->
+    <meta property="og:url" content="https://alexiia99.github.io/Portfolio">
+    <title>Alexia Herrador Jiménez - Software Developer · AI & Data</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    
-    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Estilos -->
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/css/animations.css">
+
+    <style>
+        /* ── Language Toggle ── */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 4px 6px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: background 0.2s;
+        }
+        .lang-toggle:hover { background: rgba(255,255,255,0.18); }
+        .lang-btn {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 14px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: inherit;
+            transition: background 0.2s, color 0.2s;
+            letter-spacing: 0.5px;
+        }
+        .lang-btn.active {
+            background: var(--primary, #2563EB);
+            color: #fff;
+        }
+        /* hide/show i18n elements */
+        [data-lang="en"] { display: none; }
+        html[lang="en"] [data-lang="es"] { display: none; }
+        html[lang="en"] [data-lang="en"] { display: revert; }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -34,521 +61,430 @@
             <div class="logo">
                 <a href="#home">ALEXIA.DEV</a>
             </div>
-            
-            <!-- Desktop Navigation -->
             <ul class="nav-links">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre Mí</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home"    data-lang="es">Inicio</a>    <a href="#home"    data-lang="en">Home</a></li>
+                <li><a href="#about"   data-lang="es">Sobre Mí</a>  <a href="#about"   data-lang="en">About</a></li>
+                <li><a href="#skills"  data-lang="es">Skills</a>    <a href="#skills"  data-lang="en">Skills</a></li>
+                <li><a href="#projects"data-lang="es">Proyectos</a> <a href="#projects"data-lang="en">Projects</a></li>
+                <li><a href="#contact" data-lang="es">Contacto</a>  <a href="#contact" data-lang="en">Contact</a></li>
+                <li>
+                    <div class="lang-toggle" id="langToggle">
+                        <button class="lang-btn active" id="btnEs" onclick="setLang('es')">ES</button>
+                        <button class="lang-btn"        id="btnEn" onclick="setLang('en')">EN</button>
+                    </div>
+                </li>
             </ul>
-            
-            <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
-        
-        <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <ul class="mobile-nav-links">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre Mí</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home"    data-lang="es">Inicio</a>    <a href="#home"    data-lang="en">Home</a></li>
+                <li><a href="#about"   data-lang="es">Sobre Mí</a>  <a href="#about"   data-lang="en">About</a></li>
+                <li><a href="#skills"  data-lang="es">Skills</a>    <a href="#skills"  data-lang="en">Skills</a></li>
+                <li><a href="#projects"data-lang="es">Proyectos</a> <a href="#projects"data-lang="en">Projects</a></li>
+                <li><a href="#contact" data-lang="es">Contacto</a>  <a href="#contact" data-lang="en">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero" style="padding-top: 100px;">
         <div class="floating-elements">
             <div class="floating-shape"></div>
             <div class="floating-shape"></div>
             <div class="floating-shape"></div>
         </div>
-        
         <div class="hero-content">
             <h1>
                 <span class="hero-name">Alexia Herrador</span><br>
-                <span class="hero-title">Desarrolladora DAM</span>
+                <span class="hero-title">Software Developer · AI & Data</span>
             </h1>
-            
-            <p class="hero-subtitle">
-                Graduada en <strong>Desarrollo de Aplicaciones Multiplataforma</strong><br>
-                Especializada en <strong>Android y Backend</strong> • Creando <strong>aplicaciones móviles innovadoras</strong>
+            <p class="hero-subtitle" data-lang="es">
+                Desarrollo en <strong>Android y Backend</strong> durante el día •
+                Especialización en <strong>IA y Big Data</strong> por las noches •
+                Construyendo <strong>cosas que la gente realmente necesita</strong>
             </p>
-            
+            <p class="hero-subtitle" data-lang="en">
+                Building <strong>Android & Backend</strong> by day •
+                Studying <strong>AI & Big Data</strong> by night •
+                Making <strong>things people actually need</strong>
+            </p>
             <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                <a href="#about" class="btn btn-secondary">Conoce Más</a>
-                <a href="./assets/documents/cv-alexia-herrador.pdf" class="btn btn-outline" target="_blank">Descargar CV</a>
+                <a href="#projects" class="btn btn-primary"  data-lang="es">Ver Proyectos</a>
+                <a href="#projects" class="btn btn-primary"  data-lang="en">See Projects</a>
+                <a href="#about"    class="btn btn-secondary" data-lang="es">Conoce Más</a>
+                <a href="#about"    class="btn btn-secondary" data-lang="en">About Me</a>
+                <a href="https://github.com/Alexiia99" class="btn btn-outline" target="_blank">GitHub</a>
             </div>
-            
-            <!-- Stats rápidas -->
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number">5+</span>
-                    <span class="stat-label">Proyectos</span>
+                    <span class="stat-label" data-lang="es">Proyectos</span>
+                    <span class="stat-label" data-lang="en">Projects</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">8+</span>
-                    <span class="stat-label">Tecnologías</span>
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label" data-lang="es">Tecnologías</span>
+                    <span class="stat-label" data-lang="en">Technologies</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number">3</span>
-                    <span class="stat-label">Meses prácticas</span>
+                    <span class="stat-number">1</span>
+                    <span class="stat-label" data-lang="es">Año experiencia</span>
+                    <span class="stat-label" data-lang="en">Year experience</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Profile Image -->
         <div class="hero-image">
-            <img src="./assets/images/profile/hero-photo.jpg" alt="Alexia Herrador Jiménez - Desarrolladora DAM" class="profile-img">
+            <img src="./assets/images/profile/hero-photo.jpg" alt="Alexia Herrador Jiménez" class="profile-img">
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="section">
-            <h2 class="section-title">Sobre Mí</h2>
-            
+            <h2 class="section-title" data-lang="es">Sobre Mí</h2>
+            <h2 class="section-title" data-lang="en">About Me</h2>
             <div class="about-content fade-in">
                 <div class="about-text">
-                    <h3>Mi Historia</h3>
-                    <p>
-                        Soy <strong>Alexia Herrador Jiménez</strong>, desarrolladora graduada en DAM en <strong>2025</strong> 
-                        por <strong>IGFormación</strong>. Durante mis estudios me especialicé en 
-                        <strong>desarrollo Android y Backend</strong> y desarrollé <strong>múltiples</strong> 
-                        proyectos importantes usando tecnologías como Kotlin, Node.js y APIs REST.
-                    </p>
-                    
-                    <p>
-                        Mi proyecto final de grado fue <strong>Legal Reply</strong>, donde implementé 
-                        <strong>Kotlin, Node.js, MongoDB, WhatsApp Business API y Zadarma</strong> para crear una solución completa de automatización de respuestas a llamadas perdidas. 
-                        Este proyecto me permitió profundizar en <strong>integración de APIs complejas</strong> y entender la 
-                        importancia de <strong>la arquitectura escalable en aplicaciones reales</strong>.
-                    </p>
-                    
-                    <p>
-                        Actualmente estoy <strong>buscando mi primera oportunidad laboral</strong> y mi objetivo 
-                        es <strong>desarrollar mi carrera en Android y backend development</strong>. Me apasiona crear aplicaciones 
-                        que resuelvan problemas reales y contribuir al crecimiento de la comunidad tech. Tengo experiencia en 
-                        <strong>prácticas de 3 meses en METABOGACÍA</strong> donde desarrollé aplicaciones móviles completas.
-                    </p>
-                    
-                    <!-- Botón para página extendida -->
-                    <a href="./pages/about.html" class="btn btn-outline">Leer más sobre mi journey</a>
+                    <h3 data-lang="es">Mi Historia</h3>
+                    <h3 data-lang="en">My Story</h3>
+
+                    <p data-lang="es">Soy <strong>Alexia Herrador Jiménez</strong>, desarrolladora de software con formación en <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y actualmente cursando una <strong>Especialización en IA y Big Data</strong>. También tengo el título de <strong>Experta Universitaria en Análisis y Soluciones Software</strong> por la UCAM.</p>
+                    <p data-lang="en">I'm <strong>Alexia Herrador Jiménez</strong>, a software developer with a background in <strong>Cross-Platform App Development (DAM)</strong>, currently specializing in <strong>AI & Big Data</strong>. I also hold a <strong>University Expert in Software Analysis & Solutions</strong> from UCAM.</p>
+
+                    <p data-lang="es">Trabajo como desarrolladora en <strong>HF Sistemas SL</strong>, donde además de desarrollo Android y backend, estoy construyendo un <strong>chatbot con IA</strong>: una interfaz en lenguaje natural sobre bases de datos internas con un LLM local fine-tuneado (Ollama). El usuario pregunta en texto libre y el modelo genera y ejecuta la SQL automáticamente.</p>
+                    <p data-lang="en">I work as a developer at <strong>HF Sistemas SL</strong>, where alongside Android and backend development I'm building an <strong>AI-powered chatbot</strong>: a natural language interface for internal databases using a fine-tuned local LLM (Ollama). Users ask questions in plain text and the model generates and executes the SQL automatically.</p>
+
+                    <p data-lang="es">Me importa construir cosas que resuelvan problemas reales — aunque nadie las esté usando todavía. La mayoría de mis proyectos empezaron con un <em>"espera, ¿por qué esto no existe?"</em></p>
+                    <p data-lang="en">I care about building things that solve real problems — even if nobody's using them yet. Most of my projects started as a <em>"wait, why doesn't this exist?"</em> moment.</p>
+
+                    <a href="https://github.com/Alexiia99" class="btn btn-outline" target="_blank" data-lang="es">Ver mis proyectos en GitHub</a>
+                    <a href="https://github.com/Alexiia99" class="btn btn-outline" target="_blank" data-lang="en">See my projects on GitHub</a>
                 </div>
-                
-                <!-- Imagen About -->
                 <div class="about-image">
-                    <img src="./assets/images/profile/about-photo.jpg" alt="Trabajando en código" class="about-img">
-                    
-                    <!-- Info cards flotantes -->
+                    <img src="./assets/images/profile/about-photo.jpg" alt="Working on code" class="about-img">
                     <div class="info-cards">
                         <div class="info-card">
-                            <span class="info-icon">🎓</span>
-                            <span class="info-text">Graduada DAM</span>
+                            <span class="info-icon">💻</span>
+                            <span class="info-text" data-lang="es">Dev en HF Sistemas</span>
+                            <span class="info-text" data-lang="en">Dev @ HF Sistemas</span>
                         </div>
                         <div class="info-card">
-                            <span class="info-icon">💻</span>
-                            <span class="info-text">Android & Backend</span>
+                            <span class="info-icon">🤖</span>
+                            <span class="info-text">IA & Big Data</span>
                         </div>
                         <div class="info-card">
                             <span class="info-icon">🚀</span>
-                            <span class="info-text">Siempre aprendiendo</span>
+                            <span class="info-text" data-lang="es">Siempre aprendiendo</span>
+                            <span class="info-text" data-lang="en">Always learning</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Stats detalladas -->
             <div class="stats-detailed">
                 <div class="stat-card">
                     <div class="stat-number">5+</div>
-                    <h4>Proyectos Completados</h4>
-                    <p>Entre académicos y personales</p>
+                    <h4 data-lang="es">Proyectos</h4>           <h4 data-lang="en">Projects</h4>
+                    <p  data-lang="es">Personales, académicos y de empresa</p>
+                    <p  data-lang="en">Personal, academic and professional</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">8</div>
-                    <h4>Tecnologías Dominadas</h4>
-                    <p>Frontend, Backend y Mobile</p>
+                    <div class="stat-number">15+</div>
+                    <h4 data-lang="es">Tecnologías</h4>         <h4 data-lang="en">Technologies</h4>
+                    <p  data-lang="es">Mobile, Backend, IA y Big Data</p>
+                    <p  data-lang="en">Mobile, Backend, AI & Big Data</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">1200+</div>
-                    <h4>Horas de Código</h4>
-                    <p>Durante el ciclo y proyectos personales</p>
+                    <div class="stat-number">142</div>
+                    <h4 data-lang="es">Tests en Hansel</h4>     <h4 data-lang="en">Tests in Hansel</h4>
+                    <p  data-lang="es">Porque el código debe funcionar</p>
+                    <p  data-lang="en">Because code should actually work</p>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <h4>Meses de Prácticas</h4>
-                    <p>Experiencia real en empresa</p>
+                    <div class="stat-number">1</div>
+                    <h4 data-lang="es">Año de experiencia</h4>  <h4 data-lang="en">Year of experience</h4>
+                    <p  data-lang="es">Trabajo real, problemas reales</p>
+                    <p  data-lang="en">Real work, real problems</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="skills">
         <div class="section">
-            <h2 class="section-title">Mis Skills</h2>
-            
-            <!-- Filtros de skills -->
+            <h2 class="section-title" data-lang="es">Mis Skills</h2>
+            <h2 class="section-title" data-lang="en">My Skills</h2>
             <div class="skills-filters">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="languages">Lenguajes</button>
-                <button class="filter-btn" data-filter="frameworks">Frameworks</button>
-                <button class="filter-btn" data-filter="tools">Herramientas</button>
-                <button class="filter-btn" data-filter="soft">Soft Skills</button>
+                <button class="filter-btn active" data-filter="all"       data-lang="es">Todas</button>
+                <button class="filter-btn active" data-filter="all"       data-lang="en">All</button>
+                <button class="filter-btn" data-filter="languages"        data-lang="es">Lenguajes</button>
+                <button class="filter-btn" data-filter="languages"        data-lang="en">Languages</button>
+                <button class="filter-btn" data-filter="frameworks"       >Frameworks</button>
+                <button class="filter-btn" data-filter="tools"            data-lang="es">Herramientas</button>
+                <button class="filter-btn" data-filter="tools"            data-lang="en">Tools</button>
+                <button class="filter-btn" data-filter="data"             >Data & AI</button>
             </div>
-            
             <div class="skills-grid fade-in">
-                <!-- Kotlin -->
                 <div class="skill-card" data-category="languages">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/kotlin-icon.svg" alt="Kotlin">
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/kotlin-icon.svg" alt="Kotlin"></div>
                     <h3>Kotlin</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="90"></div>
-                    </div>
-                    <p>Desarrollo Android nativo con Jetpack Compose, MVVM, Room Database y Material Design</p>
-                    <div class="skill-projects">
-                        <span>Proyectos: Legal Reply + varios</span>
-                    </div>
+                    <div class="skill-level"><div class="skill-bar" data-level="90"></div></div>
+                    <p data-lang="es">Desarrollo Android nativo con MVVM, Room Database y Material Design</p>
+                    <p data-lang="en">Native Android development with MVVM, Room Database and Material Design</p>
+                    <div class="skill-projects"><span>METABOGACÍA · Numo · HF Sistemas</span></div>
                 </div>
-                
-                <!-- Java -->
                 <div class="skill-card" data-category="languages">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/java-icon.svg" alt="Java">
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/java-icon.svg" alt="Java"></div>
                     <h3>Java</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="75"></div>
-                    </div>
-                    <p>POO, Collections, desarrollo backend y APIs RESTful</p>
-                    <div class="skill-projects">
-                        <span>Proyectos: Múltiples durante DAM</span>
-                    </div>
+                    <div class="skill-level"><div class="skill-bar" data-level="80"></div></div>
+                    <p data-lang="es">Backend, APIs REST y desarrollo de aplicaciones empresariales</p>
+                    <p data-lang="en">Backend, REST APIs and enterprise application development</p>
+                    <div class="skill-projects"><span>HF Sistemas · DAM</span></div>
                 </div>
-                
-                <!-- Node.js -->
+                <div class="skill-card" data-category="data">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <div class="skill-level"><div class="skill-bar" data-level="82"></div></div>
+                    <p data-lang="es">Machine Learning, análisis de datos, LLMs y automatización</p>
+                    <p data-lang="en">Machine Learning, data analysis, LLMs and automation</p>
+                    <div class="skill-projects"><span>Hansel · Attrition Prediction</span></div>
+                </div>
                 <div class="skill-card" data-category="frameworks">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/node-icon.svg" alt="Node.js">
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/node-icon.svg" alt="Node.js"></div>
                     <h3>Node.js</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="85"></div>
-                    </div>
-                    <p>Backend completo con Express, APIs REST, integración WhatsApp y Zadarma</p>
-                    <div class="skill-projects">
-                        <span>Proyecto: Legal Reply backend</span>
-                    </div>
+                    <div class="skill-level"><div class="skill-bar" data-level="85"></div></div>
+                    <p data-lang="es">Backend completo con Express y APIs REST</p>
+                    <p data-lang="en">Full backend with Express and REST APIs</p>
+                    <div class="skill-projects"><span>METABOGACÍA · HF Sistemas · Chatbot SQL</span></div>
                 </div>
-                
-                <!-- Bases de Datos -->
+                <div class="skill-card" data-category="data">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-level"><div class="skill-bar" data-level="78"></div></div>
+                    <p data-lang="es">Scikit-learn, TensorFlow, LangChain, Ollama, RAG, fine-tuning LLMs locales</p>
+                    <p data-lang="en">Scikit-learn, TensorFlow, LangChain, Ollama, RAG, local LLM fine-tuning</p>
+                    <div class="skill-projects"><span>Hansel · Attrition · Chatbot Text-to-SQL</span></div>
+                </div>
                 <div class="skill-card" data-category="tools">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/database-icon.svg" alt="Bases de Datos">
-                    </div>
-                    <h3>Bases de Datos</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="80"></div>
-                    </div>
-                    <p>MongoDB, PostgreSQL, MySQL, Supabase y Firebase - Diseño de esquemas y optimización</p>
-                    <div class="skill-projects">
-                        <span>Usado en: Legal Reply + múltiples proyectos</span>
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/database-icon.svg" alt="DB"></div>
+                    <h3 data-lang="es">Bases de Datos</h3>
+                    <h3 data-lang="en">Databases</h3>
+                    <div class="skill-level"><div class="skill-bar" data-level="83"></div></div>
+                    <p data-lang="es">PostgreSQL, MongoDB, MySQL, SQLite, Supabase, Firebase. SQL avanzado</p>
+                    <p data-lang="en">PostgreSQL, MongoDB, MySQL, SQLite, Supabase, Firebase. Advanced SQL</p>
+                    <div class="skill-projects"><span data-lang="es">Todos los proyectos</span><span data-lang="en">All projects</span></div>
                 </div>
-                
-                <!-- APIs REST -->
+                <div class="skill-card" data-category="data">
+                    <div class="skill-icon">📊</div>
+                    <h3>Big Data</h3>
+                    <div class="skill-level"><div class="skill-bar" data-level="70"></div></div>
+                    <p data-lang="es">Hadoop/HDFS, Hive, Spark, Kafka, HBase, Airflow. Data Warehouse y modelado dimensional</p>
+                    <p data-lang="en">Hadoop/HDFS, Hive, Spark, Kafka, HBase, Airflow. Data Warehouse and dimensional modelling</p>
+                    <div class="skill-projects"><span data-lang="es">Especialización IA & Big Data</span><span data-lang="en">AI & Big Data specialization</span></div>
+                </div>
                 <div class="skill-card" data-category="frameworks">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/api-icon.svg" alt="APIs REST">
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/api-icon.svg" alt="APIs"></div>
                     <h3>APIs REST</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="85"></div>
-                    </div>
-                    <p>Diseño, desarrollo y consumo de APIs. Integración con servicios externos complejos</p>
-                    <div class="skill-projects">
-                        <span>WhatsApp API, Zadarma API</span>
-                    </div>
+                    <div class="skill-level"><div class="skill-bar" data-level="88"></div></div>
+                    <p data-lang="es">Diseño, desarrollo e integración de APIs. WhatsApp Business API, FastAPI</p>
+                    <p data-lang="en">API design, development and integration. WhatsApp Business API, FastAPI</p>
+                    <div class="skill-projects"><span>METABOGACÍA · Hansel · HF Sistemas</span></div>
                 </div>
-                
-                <!-- Android SDK -->
-                <div class="skill-card" data-category="frameworks">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/android-icon.svg" alt="Android">
-                    </div>
-                    <h3>Android SDK</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="90"></div>
-                    </div>
-                    <p>Desarrollo nativo, Jetpack Compose, MVVM, Room, Retrofit y Material Design</p>
-                    <div class="skill-projects">
-                        <span>Aplicaciones completas funcionales</span>
-                    </div>
-                </div>
-                
-                <!-- Git & GitHub -->
                 <div class="skill-card" data-category="tools">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/git-icon.svg" alt="Git">
-                    </div>
+                    <div class="skill-icon"><img src="./assets/images/icons/git-icon.svg" alt="Git"></div>
                     <h3>Git & GitHub</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="80"></div>
-                    </div>
-                    <p>Control de versiones, branching, merging y trabajo colaborativo</p>
-                    <div class="skill-projects">
-                        <span>Todo mi código versionado</span>
-                    </div>
+                    <div class="skill-level"><div class="skill-bar" data-level="82"></div></div>
+                    <p data-lang="es">Control de versiones, branching y trabajo en equipo</p>
+                    <p data-lang="en">Version control, branching and collaborative work</p>
+                    <div class="skill-projects"><span data-lang="es">Todo mi código versionado</span><span data-lang="en">All my code is versioned</span></div>
                 </div>
-                
-                <!-- React Native -->
-                <div class="skill-card" data-category="frameworks">
-                    <div class="skill-icon">
-                        <img src="./assets/images/icons/react-icon.svg" alt="React Native">
-                    </div>
-                    <h3>React Native</h3>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="70"></div>
-                    </div>
-                    <p>Desarrollo multiplataforma, aunque prefiero Kotlin nativo para Android</p>
-                    <div class="skill-projects">
-                        <span>Proyectos experimentales</span>
-                    </div>
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-icon">🐳</div>
+                    <h3>Docker</h3>
+                    <div class="skill-level"><div class="skill-bar" data-level="70"></div></div>
+                    <p data-lang="es">Containerización y Docker Compose para entornos multi-servicio</p>
+                    <p data-lang="en">Containerization and Docker Compose for multi-service environments</p>
+                    <div class="skill-projects"><span>Hansel · Specialization</span></div>
                 </div>
-                
-                <!-- Soft Skills -->
-                <div class="skill-card" data-category="soft">
-                     <div class="skill-icon">
-                        <img src="./assets/images/icons/teamwork-icon.svg" alt="React Native">
-                    </div>
-                    <h3>Trabajo en Equipo</h3>
-                    <p>Experiencia en prácticas empresariales y proyectos colaborativos durante DAM</p>
-                </div>
-                
-                <div class="skill-card" data-category="soft">
-                    <div class="skill-icon">🧠</div>
-                    <h3>Resolución de Problemas</h3>
-                    <p>Análisis lógico, debugging y solución de problemas técnicos complejos como integración de APIs</p>
-                </div>
-                
-                <div class="skill-card" data-category="soft">
-                     <div class="skill-icon">
-                        <img src="./assets/images/icons/learn-icon.svg" alt="React Native">
-                    </div>
-                    <h3>Aprendizaje Continuo</h3>
-                    <p>Siempre actualizándome con nuevas tecnologías y mejores prácticas del desarrollo</p>
-                </div>
-            </div>
-            
-            <!-- Link a recursos educativos -->
-            <div class="skills-cta">
-                <h3>¿Quieres aprender estas tecnologías?</h3>
-                <p>He creado guías paso a paso de todas estas tecnologías</p>
-                <a href="./pages/learn/" class="btn btn-primary">Explorar Tutoriales</a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="projects">
         <div class="section">
-            <h2 class="section-title">Proyectos Destacados</h2>
-            
+            <h2 class="section-title" data-lang="es">Proyectos Destacados</h2>
+            <h2 class="section-title" data-lang="en">Featured Projects</h2>
             <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn active" data-filter="all"       data-lang="es">Todos</button>
+                <button class="filter-btn active" data-filter="all"       data-lang="en">All</button>
+                <button class="filter-btn" data-filter="mobile"           >Mobile</button>
+                <button class="filter-btn" data-filter="ai"               >AI & Data</button>
+                <button class="filter-btn" data-filter="fullstack"        >Full Stack</button>
             </div>
-            
             <div class="projects-grid fade-in">
-                <!-- Proyecto 1 - Legal Reply -->
-                <div class="project-card" data-category="fullstack">
+                <!-- Hansel -->
+                <div class="project-card" data-category="ai">
                     <div class="project-image">
-                        <img src="./assets/images/projects/legal-reply-screenshot.png" alt="Legal Reply - Automatización WhatsApp">
+                        <img src="./assets/images/projects/hansel-screenshot.png" alt="Hansel">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="./pages/projects/legal-reply.html" class="project-link">Ver Detalles</a>
-                                <a href="#" class="project-link" onclick="alert('Proyecto empresarial - código privado')">Info Código</a>
-                                <a href="./assets/documents/legal-reply-presentation.pdf" class="project-link" target="_blank">Presentación PDF</a>
+                                <a href="https://github.com/Alexiia99/Hansel" class="project-link" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">⚡ Full Stack + APIs</div>
-                        <h3>Legal Reply</h3>
-                        <p>Sistema completo de automatización para respuesta a llamadas perdidas. Integra WhatsApp Business API, detección de llamadas con Zadarma y chatbot inteligente para abogados y autónomos.</p>
+                        <div class="project-category">🤖 AI · LLM · RAG</div>
+                        <h3>Hansel</h3>
+                        <p data-lang="es">Agente autónomo de búsqueda de empleo. Lee tu CV, busca en 3 portales en paralelo, puntúa ofertas con embeddings + LLM reranker y genera emails personalizados con defensa contra alucinaciones en 3 capas. Todo local, sin APIs de pago.</p>
+                        <p data-lang="en">Autonomous job search agent. Reads your CV, searches 3 job boards in parallel, ranks listings with embeddings + LLM reranker, and drafts personalized emails with a 3-layer hallucination defense. 100% local, no paid APIs.</p>
                         <div class="project-tags">
-                            <span class="tag">Kotlin</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">WhatsApp API</span>
-                            <span class="tag">Zadarma API</span>
-                            <span class="tag">Supabase</span>
+                            <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Ollama</span><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">Docker</span>
                         </div>
                         <div class="project-stats">
-                            <span>⭐ Proyecto Final DAM</span>
-                            <span>📊 3 meses desarrollo</span>
+                            <span>⭐ 142 unit tests</span>
+                            <span>📊 100% local</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Proyecto 2 -  -->
+                <!-- Attrition -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-image">
+                        <img src="./assets/images/projects/attrition-screenshot.png" alt="Attrition Prediction">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Alexiia99/Attrition-Prediction" class="project-link" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">📊 Machine Learning · Data</div>
+                        <h3>Employee Attrition Prediction</h3>
+                        <p data-lang="es">Sistema ML para predecir qué empleados van a dejar la empresa y cuánto le cuesta eso al negocio. 7 algoritmos comparados, threshold tuning por costes reales adaptados al mercado IT suizo. LDA ahorra ~82k CHF vs threshold por defecto.</p>
+                        <p data-lang="en">ML system to predict which employees are likely to leave — and what it costs the business. 7 algorithms compared, cost-based threshold tuning adapted to the Swiss IT market. LDA saves ~82k CHF vs the default threshold.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">LDA</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+                        </div>
+                        <div class="project-stats">
+                            <span>⭐ ROC-AUC 0.857</span>
+                            <span>📊 ~82k CHF saved</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Numo -->
                 <div class="project-card" data-category="mobile">
                     <div class="project-image">
-                        <img src="./assets/images/projects/android-app-screenshot.jpg" alt="Próxima App Android">
+                        <img src="./assets/images/projects/numo-screenshot.jpg" alt="Numo">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">Próximamente</a>
-                                <a href="#" class="project-link">GitHub</a>
-                                <a href="#" class="project-link">Demo</a>
+                                <a href="https://github.com/Alexiia99/Numo" class="project-link" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">📱 Mobile App</div>
-                        <h3>Próxima App Android</h3>
-                        <p>Estoy desarrollando una nueva aplicación Android nativa que estará disponible próximamente. Enfocada en demostrar mis skills en Kotlin y arquitectura MVVM.</p>
+                        <div class="project-category">📱 Android · SQLite</div>
+                        <h3>Numo</h3>
+                        <p data-lang="es">App Android de gestión de gastos offline-first. Sin cuenta, sin cloud. SQLite local, recurrentes con notificaciones, topes por categoría, gráficas y export a CSV/PDF. Mi hermana y yo la usamos a diario.</p>
+                        <p data-lang="en">Offline-first Android expense tracker. No account, no cloud. Local SQLite, recurring payments with notifications, category budget limits, charts and CSV/PDF export. My sister and I use it daily.</p>
                         <div class="project-tags">
-                            <span class="tag">Kotlin</span>
-                            <span class="tag">Jetpack Compose</span>
-                            <span class="tag">MVVM</span>
-                            <span class="tag">Room</span>
+                            <span class="tag">Kotlin</span><span class="tag">SQLite</span><span class="tag">MVVM</span><span class="tag">Android</span>
                         </div>
                         <div class="project-stats">
-                            <span>⭐ En desarrollo</span>
-                            <span>📊 Disponible pronto</span>
+                            <span data-lang="es">⭐ En uso real</span><span data-lang="en">⭐ Actually used</span>
+                            <span>📊 100% offline</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Proyecto 3 - Otro placeholder -->
-                <div class="project-card" data-category="web">
+                <!-- METABOGACÍA -->
+                <div class="project-card" data-category="fullstack">
                     <div class="project-image">
-                        <img src="./assets/images/projects/portfolio-screenshot.jpg" alt="Portfolio Personal">
+                        <img src="./assets/images/projects/legal-reply-screenshot.png" alt="METABOGACÍA">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">Ver Código</a>
-                                <a href="https://github.com/Alexiia99/Portfolio" class="project-link" target="_blank">GitHub</a>
-                                <a href="#home" class="project-link">Ver Live</a>
+                                <a href="https://github.com/Alexiia99" class="project-link" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <div class="project-category">🌐 Web Portfolio</div>
-                        <h3>Portfolio Personal</h3>
-                        <p>Este mismo portfolio que estás viendo. Desarrollado con HTML5, CSS3 y JavaScript vanilla. Diseño responsive y animaciones CSS para mostrar mis proyectos y habilidades.</p>
+                        <div class="project-category">⚡ Full Stack · APIs</div>
+                        <h3>METABOGACÍA App</h3>
+                        <p data-lang="es">App Android completa para automatización de comunicaciones jurídicas. WhatsApp Business API + VoIP para respuesta automática a llamadas. CRUD completo, backend Node.js en la nube, bot programado. Cliente real, deadline real.</p>
+                        <p data-lang="en">Full Android app for legal communication automation. WhatsApp Business API + VoIP for automatic call responses. Complete CRUD, cloud Node.js backend, automated bot. Real client. Real deadline. Real code.</p>
                         <div class="project-tags">
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Responsive</span>
+                            <span class="tag">Kotlin</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">WhatsApp API</span><span class="tag">Firebase</span>
                         </div>
                         <div class="project-stats">
-                            <span>⭐ Código abierto</span>
-                            <span>📊 Diseño propio</span>
+                            <span data-lang="es">⭐ Prácticas reales</span><span data-lang="en">⭐ Real internship</span>
+                            <span data-lang="es">📊 Cliente real</span><span data-lang="en">📊 Real client</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Link a todos los proyectos -->
             <div class="projects-cta">
-                <p>Estos son algunos de mis proyectos, con más en desarrollo</p>
-                <a href="https://github.com/alexia-herrador" class="btn btn-outline" target="_blank">Ver todos en GitHub</a>
+                <p data-lang="es">Estos son algunos de mis proyectos — hay más en GitHub</p>
+                <p data-lang="en">These are some of my projects — there's more on GitHub</p>
+                <a href="https://github.com/Alexiia99" class="btn btn-outline" target="_blank" data-lang="es">Ver todos en GitHub</a>
+                <a href="https://github.com/Alexiia99" class="btn btn-outline" target="_blank" data-lang="en">See all on GitHub</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="section">
-            <h2 class="section-title">¡Conectemos!</h2>
-            
+            <h2 class="section-title" data-lang="es">¡Conectemos!</h2>
+            <h2 class="section-title" data-lang="en">Let's Connect!</h2>
             <div class="contact-content fade-in">
                 <div class="contact-text">
-                    <h3>¡Hablamos?</h3>
-                    <p>
-                        ¿Tienes un proyecto en mente? ¿Quieres colaborar en algo increíble? 
-                        ¿Necesitas ayuda con Android o backend? ¡No dudes en contactarme!
-                    </p>
-                    <p>
-                        Siempre estoy abierta a nuevas oportunidades, colaboraciones y 
-                        conversaciones sobre tecnología. Respondo rápido y me encanta 
-                        conocer gente nueva del sector. Actualmente en búsqueda activa de empleo.
-                    </p>
+                    <h3 data-lang="es">¡Hablamos?</h3>
+                    <h3 data-lang="en">Get in touch</h3>
+                    <p data-lang="es">¿Estás trabajando en algo interesante? ¿Quieres hablar sobre IA, datos o por qué el threshold tuning importa más que la accuracy? Estoy por aquí.</p>
+                    <p data-lang="en">Working on something interesting? Want to talk about AI, data, or why threshold tuning matters more than accuracy? I'm around.</p>
+                    <p data-lang="es">Siempre abierta a nuevas oportunidades y colaboraciones.</p>
+                    <p data-lang="en">Always open to new opportunities and collaborations.</p>
                 </div>
-                
                 <div class="contact-methods">
-                    <!-- Email -->
                     <div class="contact-method">
                         <div class="contact-icon">📧</div>
                         <div class="contact-info">
                             <h4>Email</h4>
                             <p>alexiahj111@gmail.com</p>
-                            <span>Respuesta en ~24h</span>
+                            <span data-lang="es">Respuesta en ~24h</span>
+                            <span data-lang="en">Reply within ~24h</span>
                         </div>
                     </div>
-                    
-                    <!-- LinkedIn -->
                     <div class="contact-method">
                         <div class="contact-icon">💼</div>
                         <div class="contact-info">
                             <h4>LinkedIn</h4>
                             <p>Alexia Herrador Jiménez</p>
-                            <span>Red profesional</span>
+                            <span data-lang="es">Red profesional</span>
+                            <span data-lang="en">Professional network</span>
                         </div>
                     </div>
-                    
-                    <!-- GitHub -->
                     <div class="contact-method">
-                        <div class="contact-icon">👨‍💻</div>
+                        <div class="contact-icon">👩‍💻</div>
                         <div class="contact-info">
                             <h4>GitHub</h4>
-                            <p>/alexia-herrador</p>
-                            <span>Todo mi código</span>
-                        </div>
-                    </div>
-                    
-                    <!-- WhatsApp -->
-                    <div class="contact-method">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-info">
-                            <h4>Teléfono</h4>
-                            <p>+34 657 641 482</p>
-                            <span>Alicante, España</span>
+                            <p>github.com/Alexiia99</p>
+                            <span data-lang="es">Todo mi código</span>
+                            <span data-lang="en">All my code</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="contact-buttons">
-                    <a href="mailto:alexiahj111@gmail.com" class="contact-btn btn-primary">
-                        Enviar Email
-                    </a>
-                    <a href="https://linkedin.com/in/alexia-herrador-jimenez" class="contact-btn btn-secondary" target="_blank">
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/alexia-herrador" class="contact-btn btn-outline" target="_blank">
-                        GitHub
-                    </a>
+                    <a href="mailto:alexiahj111@gmail.com" class="contact-btn btn-primary" data-lang="es">Enviar Email</a>
+                    <a href="mailto:alexiahj111@gmail.com" class="contact-btn btn-primary" data-lang="en">Send Email</a>
+                    <a href="https://linkedin.com/in/alexia-herrador-jimenez" class="contact-btn btn-secondary" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/Alexiia99" class="contact-btn btn-outline" target="_blank">GitHub</a>
                 </div>
-                
-                <!-- Disponibilidad -->
                 <div class="availability">
                     <div class="status-indicator"></div>
-                    <span>Disponible para nuevos proyectos</span>
+                    <span data-lang="es">Disponible para nuevas oportunidades</span>
+                    <span data-lang="en">Open to new opportunities</span>
                 </div>
             </div>
         </div>
@@ -558,35 +494,42 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
-                <p>&copy; 2024 Alexia Herrador Jiménez. Hecho con ❤️ y mucho código.</p>
+                <p data-lang="es">&copy; 2026 Alexia Herrador Jiménez. Hecho con ❤️ y mucho código.</p>
+                <p data-lang="en">&copy; 2026 Alexia Herrador Jiménez. Built with ❤️ and a lot of code.</p>
             </div>
             <div class="footer-right">
                 <div class="footer-links">
-                    <a href="./pages/about.html">Sobre mí</a>
-                    <a href="./assets/documents/cv-alexia-herrador.pdf" target="_blank">CV</a>
-                    <a href="mailto:alexiahj111@gmail.com">Contacto</a>
+                    <a href="#about"  data-lang="es">Sobre mí</a>   <a href="#about"  data-lang="en">About</a>
+                    <a href="#projects" data-lang="es">Proyectos</a> <a href="#projects" data-lang="en">Projects</a>
+                    <a href="mailto:alexiahj111@gmail.com" data-lang="es">Contacto</a>
+                    <a href="mailto:alexiahj111@gmail.com" data-lang="en">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/alexia-herrador" target="_blank" aria-label="GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
+                    <a href="https://github.com/Alexiia99" target="_blank" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
                     <a href="https://linkedin.com/in/alexia-herrador-jimenez" target="_blank" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/animations.js"></script>
-    
-    <!-- Analytics (opcional) -->
-    <!-- <script src="./config/analytics.js"></script> -->
+    <script src="./assets/js/skills.js"></script>
+    <script src="./assets/js/projects.js"></script>
+    <script>
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('btnEs').classList.toggle('active', lang === 'es');
+            document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+            localStorage.setItem('lang', lang);
+        }
+        // Restore saved language
+        const saved = localStorage.getItem('lang');
+        if (saved && saved !== 'es') setLang(saved);
+    </script>
 </body>
 </html>
